@@ -60,8 +60,7 @@ export class HomePage {
 
   // TODO (Apartado 2 – Navegación): Navegar a /detalle con el elemento seleccionado
   verDetalle(elementoHome: Elemento): void {
-    // Pista: this.router.navigate(destino_de_la_url, { state: { elemento_que_recibimos_desde_home } });
-
+    this.router.navigate(['/detalle'], { state: { elementoHome } });
   }
 
   // TODO (Apartado 1 + 3 – Event Binding): Mostrar un ion-toast al pulsar el botón

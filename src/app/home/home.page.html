@@ -13,10 +13,10 @@
 
 <ion-content [fullscreen]="true">
 
-  <!-- TODO Con signals no podemos usar [(ngModel)] directamente.
+  <ion-item>
+    <!-- TODO Con signals no podemos usar [(ngModel)] directamente.
        Usamos property binding [ngModel] para leer el valor del signal (busqueda())
        y event binding (ngModelChange) para actualizar el signal con .set() -->
-  <ion-item>
     <!--  <ion-input [(ngModel)]="busqueda" placeholder="Buscar elemento..."></ion-input> -->
     <!-- Con signals se suele evitar el uso de ngModel, ya que esto requiere FormsModule y esto ocupa mucho-->
     <!-- Haremos uso de [value] y (ionInput)-->

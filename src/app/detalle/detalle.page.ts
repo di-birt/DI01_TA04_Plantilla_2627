@@ -20,17 +20,17 @@ export class DetallePage implements OnInit {
 
   // TODO: Modificamos elementoDetalle: Elemento | null = null; para utilizarlo con signal
   // Signal: empieza en null y se actualiza con .set() cuando lleguen los datos de navegación.
-  // En el HTML se lee como elementoDetalle()
-  elementoDetalle = signal<Elemento | null>(null);
+  elementoDetalle = null;
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
     const state = history.state;
-    if (state?.elementoHome) {
+    //TODO: Recogemos con el state el objeto elemento que se pasa desde home.page.ts
+    //if () {
       //TODO: Actualizar el signal mediante set
       // Actualizamos el signal con el elemento recibido por navegación
-      this.elementoDetalle.set(state.elementoHome);
-    }
+      
+    //}
   }
 }

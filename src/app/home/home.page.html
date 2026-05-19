@@ -18,25 +18,31 @@
        y event binding (ngModelChange) para actualizar el signal con .set() -->
   <ion-item>
     <!--  <ion-input [(ngModel)]="busqueda" placeholder="Buscar elemento..."></ion-input> -->
-    <ion-input [ngModel]="busqueda()" (ngModelChange)="busqueda.set($event)" placeholder="Buscar elemento..."></ion-input>
+    <!-- Con signals se suele evitar el uso de ngModel, ya que esto requiere FormsModule y esto ocupa mucho-->
+    <!-- Haremos uso de [value] y (ionInput)-->
+    <!-- Necesitaremos ?? (nullish coalescing o coalescencia nula), $event.detail.value ?? '', para cuando value sea null o undefined, la asignamos como ''-->
+    <ion-input placeholder="Buscar elemento..."></ion-input>
   </ion-item>
 
   <ion-list>
     <!-- TODO - Los computed se llaman como funciones: elementosFiltrados() -->
-     <!-- @for (elemento of elementosFiltrados; track elemento.id) { -->
-    @for (elemento of elementosFiltrados(); track elemento.id) {
-      <ion-item button="true" (click)="verDetalle(elemento)">
+    <!-- @for de elementosFiltrados -->
+    <!-- @for () { -->
+      <!--cuando hagamos click en el ion-item llamamos a verDetalle con el elemento actual-->
+      <ion-item button="true">
         <ion-label>
-          <h2>{{ elemento.nombre }}</h2>
-          <p>{{ elemento.descripcion }}</p>
+          <!--nombre-->
+          <h2></h2>
+          <!--descripcion-->
+          <p></p>
         </ion-label>
       </ion-item>
-    }
+    <!--}-->
   </ion-list>
 
   <!-- TODO - hayElementos también es computed: se llama como función hayElementos() -->
   <!-- <ion-button expand="block" [disabled]="!hayElementos" (click)="mostrarToast()"> -->
-  <ion-button expand="block" [disabled]="!hayElementos()" (click)="mostrarToast()">
+  <ion-button expand="block" [disabled]="" (click)="mostrarToast()">
     Mostrar mensaje
   </ion-button>
 
